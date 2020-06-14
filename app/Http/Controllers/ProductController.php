@@ -19,7 +19,7 @@ class ProductController extends Controller
         //hundle Exceptions if product = null use if or can use firstOrFail()
         //$product = Product::where('id',$id) ->firstOrFail();
         if(! $product){
-           // \abort(404);
+           \abort(404);
         }
 
 
