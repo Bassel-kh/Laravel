@@ -34,10 +34,18 @@ Route::get('/', function () {
         return view('hello', compact('name', 'age'));
     });
 //by B-kh
-    Route::get('/phpinfo', 'phpinfo@getinfo');
+    Route::get('/phpinfo', 'phpinfo@getinfo')->middleware('auth');
 //by B-kh
     Route::get('/hello1', 'PeopleController@welcome');
 
 //by B-kh
     Route::get('/product', 'ProductController@view');
+
+///////////////////////////Auth///////////////////
+/* The Auth::routes() method includes the routes for login, registration,
+ logout, and password reset. This method along with the home route was added 
+ when added the auth scaffolding in the previous section. */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
